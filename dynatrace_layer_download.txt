@@ -1,0 +1,77 @@
+#!/bin/bash
+
+# Dynatrace Lambda Layer Download Script for Node.js
+# This script downloads the Dynatrace OneAgent Lambda layer
+
+set -e
+
+# Configuration
+REGION=${1:-"us-east-1"}
+NODEJS_VERSION=${2:-"nodejs20.x"}
+OUTPUT_DIR=${3:-"./dynatrace-layer"}
+
+echo "Downloading Dynatrace Lambda Layer for Node.js..."
+echo "Region: $REGION"
+echo "Node.js Runtime: $NODEJS_VERSION"
+echo "Output Directory: $OUTPUT_DIR"
+
+# Create output directory
+mkdir -p "$OUTPUT_DIR"
+
+# Dynatrace publishes layers in different regions
+# The layer ARN format: arn:aws:lambda:REGION:725887861453:layer:Dynatrace_OneAgent_nodejs:VERSION
+
+# Get the latest layer version
+echo "Fetching latest Dynatrace layer version..."
+
+# List all versions of the Dynatrace layer
+aws lambda list-layer-versions \
+    --layer-name "arn:aws:lambda:$REGION:725887861453:layer:Dynatrace_OneAgent_nodejs" \
+    --region "$REGION" \
+    --query 'LayerVersions[0].Version' \
+    --output text > latest_version.txt
+
+LATEST_VERSION=$(cat latest_version.txt)
+echo "Latest version: $LATEST_VERSION"
+
+# Get the layer details including download URL
+echo "Getting layer download URL..."
+aws lambda get-layer-version \
+    --layer-name "arn:aws:lambda:$REGION:725887861453:layer:Dynatrace_OneAgent_nodejs" \
+    --version-number "$LATEST_VERSION" \
+    --region "$REGION" \
+    --query 'Content.Location' \
+    --output text > download_url.txt
+
+DOWNLOAD_URL=$(cat download_url.txt)
+echo "Download URL obtained"
+
+# Download the layer
+echo "Downloading layer package..."
+curl -L "$DOWNLOAD_URL" -o "$OUTPUT_DIR/dynatrace-layer.zip"
+
+# Extract the layer
+echo "Extracting layer..."
+cd "$OUTPUT_DIR"
+unzip -q dynatrace-layer.zip
+echo "Layer extracted to: $OUTPUT_DIR"
+
+# Show contents
+echo "Layer contents:"
+ls -la
+
+# Clean up temporary files
+cd ..
+rm -f latest_version.txt download_url.txt
+
+echo ""
+echo "✅ Dynatrace Lambda layer downloaded successfully!"
+echo "📁 Location: $OUTPUT_DIR"
+echo ""
+echo "To use this layer in your Lambda function:"
+echo "1. Upload the layer to your AWS account or reference the public layer ARN"
+echo "2. Add the layer ARN to your Lambda function configuration"
+echo "3. Set required environment variables (DT_TENANT, DT_API_TOKEN, etc.)"
+echo ""
+echo "Public Layer ARN for $REGION:"
+echo "arn:aws:lambda:$REGION:725887861453:layer:Dynatrace_OneAgent_nodejs:$LATEST_VERSION"
