@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platform Engineering - Healthcare Solutions</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+            min-height: 100vh;
+        }
+        
+        .slide-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        
+        .slide {
+            background: white;
+            border-radius: 8px;
+            padding: 50px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            min-height: 600px;
+            position: relative;
+            border-left: 5px solid #0066cc;
+        }
+        
+        .slide h1 {
+            color: #1a1a1a;
+            font-size: 2.4em;
+            margin-bottom: 15px;
+            font-weight: 300;
+            letter-spacing: -0.5px;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+        
+        .slide-number {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            background: #0066cc;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        
+        /* Slide 1 Specific Styles */
+        .offerings-section {
+            margin-bottom: 35px;
+        }
+        
+        .section-header {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-left: 4px solid #0066cc;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        
+        .section-title {
+            color: #0066cc;
+            font-size: 1.3em;
+            font-weight: 600;
+            margin: 0 0 5px 0;
+        }
+        
+        .section-desc {
+            color: #666;
+            font-size: 0.95em;
+            margin: 0;
+        }
+        
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .capability-item {
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .capability-title {
+            color: #333;
+            font-weight: 600;
+            font-size: 1.05em;
+            margin-bottom: 10px;
+        }
+        
+        .capability-details {
+            color: #555;
+            font-size: 0.92em;
+            line-height: 1.5;
+        }
+        
+        .tech-stack {
+            background: #f0f8ff;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 10px;
+            border: 1px solid #cce7ff;
+        }
+        
+        .tech-stack-title {
+            color: #0066cc;
+            font-weight: 600;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+        }
+        
+        .tech-list {
+            color: #444;
+            font-size: 0.88em;
+            font-family: 'Consolas', monospace;
+        }
+        
+        /* Slide 2 Specific Styles */
+        .expectations-header {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .expectations-header h2 {
+            margin: 0 0 10px 0;
+            font-size: 1.4em;
+            font-weight: 400;
+        }
+        
+        .expectations-header p {
+            margin: 0;
+            font-size: 1em;
+            opacity: 0.95;
+        }
+        
+        .expectations-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+        
+        .expectation-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .expectation-card:hover {
+            border-color: #ff6b6b;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.1);
+        }
+        
+        .expectation-number {
+            background: #ff6b6b;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        
+        .expectation-title {
+            color: #333;
+            font-weight: 600;
+            font-size: 1.1em;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        
+        .expectation-description {
+            color: #555;
+            font-size: 0.95em;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        
+        .expectation-benefit {
+            background: #f0f8ff;
+            padding: 12px;
+            border-radius: 4px;
+            border-left: 3px solid #0066cc;
+        }
+        
+        .benefit-label {
+            color: #0066cc;
+            font-weight: 600;
+            font-size: 0.85em;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .benefit-text {
+            color: #444;
+            font-size: 0.9em;
+            line-height: 1.4;
+            margin: 0;
+        }
+        
+        .metrics-footer {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 15px;
+        }
+        
+        .metric-item {
+            text-align: center;
+        }
+        
+        .metric-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #3498db;
+            display: block;
+        }
+        
+        .metric-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+        
+        @media print {
+            body { background: white; padding: 0; }
+            .slide { box-shadow: none; border: 1px solid #ddd; page-break-after: always; }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <!-- Slide 1: Platform Engineering Capabilities -->
+        <div class="slide">
+            <div class="slide-number">01</div>
+            <h1>Platform Engineering Capabilities</h1>
+            <p class="subtitle">Enterprise-grade platform solutions for healthcare & pharmacy benefit organizations</p>
+            
+            <!-- Core Platform Services -->
+            <div class="offerings-section">
+                <div class="section-header">
+                    <div class="section-title">Core Platform Services</div>
+                    <div class="section-desc">Production-ready infrastructure and development frameworks</div>
+                </div>
+                
+                <div class="capabilities-grid">
+                    <div class="capability-item">
+                        <div class="capability-title">API Development Frameworks</div>
+                        <div class="capability-details">
+                            Production-tested libraries eliminating 60-80% of boilerplate code for business capability development.
+                        </div>
+                        <div class="tech-stack">
+                            <div class="tech-stack-title">Tech Stack:</div>
+                            <div class="tech-list">GoXYZ (Go 1.21+) • TsXYZ (Node.js/TypeScript) • OpenAPI 3.0 • gRPC</div>
+                        </div>
+                    </div>
+                    
+                    <div class="capability-item">
+                        <div class="capability-title">Event-Driven Architecture</div>
+                        <div class="capability-details">
+                            HIPAA-compliant messaging patterns with guaranteed delivery, dead letter handling, and audit trails.
+                        </div>
+                        <div class="tech-stack">
+                            <div class="tech-stack-title">Tech Stack:</div>
+                            <div class="tech-list">AWS EventBridge • SQS/SNS • Apache Kafka • Schema Registry</div>
+                        </div>
+                    </div>
+                    
+                    <div class="capability-item">
+                        <div class="capability-title">Configuration Management</div>
+                        <div class="capability-details">
+                            Dynamic feature flags, environment-specific configs, and A/B testing framework with real-time updates.
+                        </div>
+                        <div class="tech-stack">
+                            <div class="tech-stack-title">Tech Stack:</div>
+                            <div class="tech-list">AWS AppConfig • Parameter Store • LaunchDarkly • Consul</div>
+                        </div>
+                    </div>
+                    
+                    <div class="capability-item">
+                        <div class="capability-title">Infrastructure as Code</div>
+                        <div class="capability-details">
+                            Terraform modules for AWS services with built-in security, monitoring, and compliance controls.
+                        </div>
+                        <div class="tech-stack">
+                            <div class="tech-stack-title">Tech Stack:</div>
+                            <div class="tech-list">Terraform • AWS CDK • CloudFormation • Terragrunt</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Specialized Healthcare Solutions -->
+            <div class="offerings-section">
+                <div class="section-header">
+                    <div class="section-title">Healthcare-Specific Capabilities</div>
+                    <div class="section-desc">Domain expertise in pharmacy benefit management and healthcare data</div>
+                </div>
+                
+                <div class="capabilities-grid">
+                    <div class="capability-item">
+                        <div class="capability-title">Claims Processing Pipeline</div>
+                        <div class="capability-details">
+                            Real-time adjudication engine processing 100K+ claims/minute with sub-200ms latency and 99.99% uptime.
+                        </div>
+                    </div>
+                    
+                    <div class="capability-item">
+                        <div class="capability-title">Microfrontend Architecture</div>
+                        <div class="capability-details">
+                            Module federation enabling independent team deployment with shared design system and state management.
+                        </div>
+                    </div>
+                    
+                    <div class="capability-item">
+                        <div class="capability-title">Data Integration Patterns</div>
+                        <div class="capability-details">
+                            HL7 FHIR, EDI X12, and proprietary format processors with data lineage tracking and quality monitoring.
+                        </div>
+                    </div>
+                    
+                    <div class="capability-item">
+                        <div class="capability-title">Compliance & Security</div>
+                        <div class="capability-details">
+                            HIPAA, SOX, and PCI-DSS compliant patterns with automated vulnerability scanning and remediation.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 2: Partnership & Operating Model -->
+        <div class="slide">
+            <div class="slide-number">02</div>
+            <h1>Partnership & Operating Model</h1>
+            <p class="subtitle">Collaborative engagement framework for platform-driven development</p>
+            
+            <div class="expectations-header">
+                <h2>Platform-First Development Principles</h2>
+                <p>Ensuring architectural consistency, reducing technical debt, and accelerating delivery</p>
+            </div>
+            
+            <div class="expectations-grid">
+                <div class="expectation-card">
+                    <div class="expectation-number">1</div>
+                    <div class="expectation-title">Architecture Design Review (ADR) Process</div>
+                    <div class="expectation-description">
+                        Mandatory platform team review for all new services, data models, and integration patterns before development sprint planning.
+                    </div>
+                    <div class="expectation-benefit">
+                        <div class="benefit-label">Business Impact</div>
+                        <div class="benefit-text">Reduces post-deployment issues by 75% and prevents technical debt accumulation</div>
+                    </div>
+                </div>
+                
+                <div class="expectation-card">
+                    <div class="expectation-number">2</div>
+                    <div class="expectation-title">Modern Stack Standardization</div>
+                    <div class="expectation-description">
+                        All new development must use platform-approved technology stack. Legacy system integrations require migration roadmap approval.
+                    </div>
+                    <div class="expectation-benefit">
+                        <div class="benefit-label">Business Impact</div>
+                        <div class="benefit-text">Reduces maintenance costs by 40% and improves security posture compliance</div>
+                    </div>
+                </div>
+                
+                <div class="expectation-card">
+                    <div class="expectation-number">3</div>
+                    <div class="expectation-title">Shared Component Governance</div>
+                    <div class="expectation-description">
+                        Platform team maintains registry of reusable components. All potentially shared functionality requires platform consultation during design phase.
+                    </div>
+                    <div class="expectation-benefit">
+                        <div class="benefit-label">Business Impact</div>
+                        <div class="benefit-text">Prevents duplicate development effort, saving 200+ engineering hours per quarter</div>
+                    </div>
+                </div>
+                
+                <div class="expectation-card">
+                    <div class="expectation-number">4</div>
+                    <div class="expectation-title">Embedded Platform Engineering</div>
+                    <div class="expectation-description">
+                        Platform engineers participate in product team ceremonies. Product teams assign technical leads for platform collaboration and knowledge transfer.
+                    </div>
+                    <div class="expectation-benefit">
+                        <div class="benefit-label">Business Impact</div>
+                        <div class="benefit-text">Improves deployment success rate to 98% and reduces rollback incidents by 60%</div>
+                    </div>
+                </div>
+                
+                <div class="expectation-card">
+                    <div class="expectation-number">5</div>
+                    <div class="expectation-title">Strategic Technology Roadmap</div>
+                    <div class="expectation-description">
+                        Platform team participates in quarterly business planning, technology investment decisions, and vendor evaluation processes.
+                    </div>
+                    <div class="expectation-benefit">
+                        <div class="benefit-label">Business Impact</div>
+                        <div class="benefit-text">Ensures technology decisions align with scalability requirements and compliance needs</div>
+                    </div>
+                </div>
+                
+                <div class="expectation-card">
+                    <div class="expectation-number">6</div>
+                    <div class="expectation-title">Platform SLA & Support Model</div>
+                    <div class="expectation-description">
+                        99.9% uptime SLA for platform services with 24/7 on-call support. Dedicated Slack channels and documented escalation procedures.
+                    </div>
+                    <div class="expectation-benefit">
+                        <div class="benefit-label">Business Impact</div>
+                        <div class="benefit-text">Guarantees platform reliability with <4 hour incident resolution time</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="metrics-footer">
+                <strong>Platform Engineering Success Metrics (Q1 2025)</strong>
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <span class="metric-value">85%</span>
+                        <div class="metric-label">Developer Productivity Increase</div>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-value">60%</span>
+                        <div class="metric-label">Time-to-Market Reduction</div>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-value">99.97%</span>
+                        <div class="metric-label">Platform Service Uptime</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
