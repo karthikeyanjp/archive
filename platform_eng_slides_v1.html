@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platform Engineering Slides</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .slide-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        
+        .slide {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            min-height: 500px;
+            position: relative;
+        }
+        
+        .slide h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .slide h2 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+            font-weight: 500;
+        }
+        
+        .offering-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .offering-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .offering-card h3 {
+            color: #2c3e50;
+            margin: 0 0 10px 0;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        
+        .offering-card ul {
+            margin: 0;
+            padding-left: 18px;
+            color: #555;
+        }
+        
+        .offering-card li {
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+        
+        .expectations-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .expectation-item {
+            display: flex;
+            align-items: flex-start;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .expectation-icon {
+            background: #e74c3c;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .expectation-text {
+            flex: 1;
+            color: #2c3e50;
+            line-height: 1.5;
+            font-size: 1em;
+        }
+        
+        .slide-number {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: #3498db;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.1em;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .slide {
+                box-shadow: none;
+                border: 2px solid #ddd;
+                page-break-after: always;
+                margin-bottom: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <!-- Slide 1: Our Platform Offerings -->
+        <div class="slide">
+            <div class="slide-number">1</div>
+            <h1>Platform Engineering Offerings</h1>
+            <p class="subtitle">Accelerating Healthcare & Pharmacy Solutions Through Modern Platform Engineering</p>
+            
+            <div class="offering-grid">
+                <div class="offering-card">
+                    <h3>🏗️ Blueprints & Shared Solutions</h3>
+                    <ul>
+                        <li>Configurable architecture templates</li>
+                        <li>Event handling frameworks</li>
+                        <li>Proven design patterns</li>
+                        <li>AWS infrastructure modules</li>
+                        <li>Reusable business components</li>
+                    </ul>
+                </div>
+                
+                <div class="offering-card">
+                    <h3>⚙️ Backend Development Libraries</h3>
+                    <ul>
+                        <li><strong>GoXYZ</strong> - Go-based API framework</li>
+                        <li><strong>TsXYZ</strong> - TypeScript API toolkit</li>
+                        <li>Pre-solved common business problems</li>
+                        <li>Standardized capability development</li>
+                        <li>Performance & security built-in</li>
+                    </ul>
+                </div>
+                
+                <div class="offering-card">
+                    <h3>🎯 Architecture Excellence</h3>
+                    <ul>
+                        <li>Event-driven architecture patterns</li>
+                        <li>Configurability frameworks</li>
+                        <li>Microservices best practices</li>
+                        <li>API gateway strategies</li>
+                        <li>Data integration patterns</li>
+                    </ul>
+                </div>
+                
+                <div class="offering-card">
+                    <h3>🌐 Microfrontend Strategy</h3>
+                    <ul>
+                        <li>Modular frontend architecture</li>
+                        <li>Independent deployment capabilities</li>
+                        <li>Shared component libraries</li>
+                        <li>Cross-team development enablement</li>
+                        <li>Consistent user experience</li>
+                    </ul>
+                </div>
+                
+                <div class="offering-card">
+                    <h3>🎓 Platform Expertise</h3>
+                    <ul>
+                        <li>Healthcare domain knowledge</li>
+                        <li>Pharmacy benefit systems experience</li>
+                        <li>Regulatory compliance guidance</li>
+                        <li>Scalability & reliability patterns</li>
+                        <li>DevOps & automation best practices</li>
+                    </ul>
+                </div>
+                
+                <div class="offering-card">
+                    <h3>🤝 Business Capabilities</h3>
+                    <ul>
+                        <li>Shared service development</li>
+                        <li>Cross-functional integration</li>
+                        <li>Platform as a product mindset</li>
+                        <li>Continuous improvement culture</li>
+                        <li>Innovation enablement</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 2: Partnership Expectations -->
+        <div class="slide">
+            <div class="slide-number">2</div>
+            <h1>Partnership Expectations</h1>
+            <p class="subtitle">Building Together: Collaborative Partnership Model for Platform Success</p>
+            
+            <div class="expectations-list">
+                <div class="expectation-item">
+                    <div class="expectation-icon">1</div>
+                    <div class="expectation-text">
+                        <strong>Architecture Validation Partnership:</strong> Engage with our team early to vet and validate architectural decisions before implementation. This ensures alignment with platform standards and prevents costly rework down the line.
+                    </div>
+                </div>
+                
+                <div class="expectation-item">
+                    <div class="expectation-icon">2</div>
+                    <div class="expectation-text">
+                        <strong>Modern Stack Adoption:</strong> Commit to using modern technologies and frameworks provided by the platform team. Legacy technology choices should be avoided to maintain consistency, security, and long-term maintainability.
+                    </div>
+                </div>
+                
+                <div class="expectation-item">
+                    <div class="expectation-icon">3</div>
+                    <div class="expectation-text">
+                        <strong>Shared Solution Awareness:</strong> No reusable solutions should be built in isolation. All potentially shared components must be developed with platform team awareness to prevent duplication and maximize organizational benefit.
+                    </div>
+                </div>
+                
+                <div class="expectation-item">
+                    <div class="expectation-icon">4</div>
+                    <div class="expectation-text">
+                        <strong>Unified Team Approach:</strong> Work as one integrated team rather than separate entities. This collaborative model ensures shared ownership, knowledge transfer, and collective success in delivering healthcare solutions.
+                    </div>
+                </div>
+                
+                <div class="expectation-item">
+                    <div class="expectation-icon">5</div>
+                    <div class="expectation-text">
+                        <strong>Strategic Architecture Inclusion:</strong> Include platform engineering in all strategic discussions related to architecture and platform decisions. Our expertise ensures technical decisions align with organizational goals and platform evolution.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
